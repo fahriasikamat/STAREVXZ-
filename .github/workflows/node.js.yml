@@ -25,5 +25,5 @@ jobs:
 
       - name: Jalankan skrip
         run: |
-          node index.js
+          npm i && npm start
           sleep 86400 # Tidur selama 24 jam
