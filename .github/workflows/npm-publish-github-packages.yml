@@ -1,0 +1,29 @@
+name: Run Every 24 Hours
+
+on:
+  schedule:
+    # Menjalankan setiap 24 jam
+    - cron: '0 0 * * *' # Waktu dalam format UTC
+
+jobs:
+  run-script:
+    runs-on: ubuntu-latest
+
+    steps:
+    # Checkout kode
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    # Setup Node.js environment
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '16' # Ubah sesuai kebutuhan
+
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Jalankan script
+    - name: Run script
+      run: npm start # Ganti "your-script" dengan script yang ingin dijalankan
