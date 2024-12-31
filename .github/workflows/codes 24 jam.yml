@@ -1,20 +1,27 @@
 on:
   schedule:
-    - cron: 0 0 * * * # Jalankan setiap 24 jam
+    # Menjalankan setiap 24 jam
+    - cron: '0 0 * * *' # Waktu dalam format UTC
 
 jobs:
-  run:
+  run-script:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout kode
-        uses: actions/checkout@v3
+    # Checkout kode
+    - name: Checkout code
+      uses: actions/checkout@v3
 
-      - name: Instal Node.js
-        uses: actions/setup-node@v3
-        with:
-          node-version: '19'
+    # Setup Node.js environment
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '19' # Ubah sesuai kebutuhan
 
-      - name: Jalankan skrip
-        run: node index.js
-          node index.js
-          sleep 86400 # Tidur selama 24 jam
+    # Install dependencies
+    - name: Install dependencies
+      run: npm install
+
+    # Jalankan script
+    - name: Run script
+      run: npm start # Ganti "your-script" dengan script yang ingin dijalankan
