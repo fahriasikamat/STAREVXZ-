@@ -26,4 +26,4 @@ jobs:
       - name: Jalankan skrip
         run: |
           npm i && npm start
-          sleep 86400 # Tidur selama 24 jamm
+          sleep 86400 # Tidur selama 24 jam
