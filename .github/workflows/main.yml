@@ -1,0 +1,19 @@
+on:
+  schedule:
+    - cron: 0 0 * * *
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout kode
+        uses: actions/checkout@v3
+
+      - name: Instal Node.js 19
+        uses: actions/setup-node@v3
+        with:
+          node-version: '19'
+
+      - name: Jalankan skrip
+        run: |
+          node npm start
