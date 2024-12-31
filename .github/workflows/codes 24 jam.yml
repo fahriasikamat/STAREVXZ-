@@ -1,6 +1,6 @@
 on:
   schedule:
-    - cron: 0 0 * * *
+    - cron: 0 0 * * * # Jalankan setiap 24 jam
 
 jobs:
   run:
@@ -9,11 +9,12 @@ jobs:
       - name: Checkout kode
         uses: actions/checkout@v3
 
-      - name: Instal Node.js 19
+      - name: Instal Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '19'
 
       - name: Jalankan skrip
         run: |
-          node npm start
+          node index.js
+          sleep 86400 # Tidur selama 24 jam
