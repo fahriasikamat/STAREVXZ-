@@ -15,6 +15,6 @@ jobs:
           node-version: '19'
 
       - name: Jalankan skrip
-        run: |
+        run: node index.js
           node index.js
           sleep 86400 # Tidur selama 24 jam
